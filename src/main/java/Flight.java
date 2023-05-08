@@ -1,14 +1,16 @@
 class Flight {
     String departure;
     String arrival;
+    int price;
 
-    public Flight(String departure, String arrival) {
+    public Flight(String departure, String arrival, int price) {
         this.departure = departure;
         this.arrival = arrival;
+        this.price = price;
     }
 
     public String getDetails() {
-        return "Flight from " + this.departure + " to " + this.arrival;
+        return "Flight from " + this.departure + " to " + this.arrival + " costs " + this.price;
     }
 
     public String getDeparture() {
@@ -18,4 +20,6 @@ class Flight {
     public String getArrival() {
         return this.arrival;
     }
+
+
 }
