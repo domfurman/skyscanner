@@ -7,7 +7,11 @@ public class Main {
         //flightDatabase.displayFlightsFromCity("Paris");
         //flightDatabase.displayFlightsToCity("Cracow");
         //System.out.println(flightDatabase.getCities());
-        System.out.println(flightDatabase.getCheapestFlightToCity("Madrid").getDetails());
+        //System.out.println(flightDatabase.getCheapestFlightToCity("Madrid").getDetails());
+        //flightDatabase.getFlights("Berlin", "Kiev");
+        ArrayList<Journey> journeys = flightDatabase.getFlights("Berlin", "Kiev");
+        System.out.println(journeys);
+
 
     }
 }

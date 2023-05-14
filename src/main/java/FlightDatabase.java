@@ -12,6 +12,11 @@ public class FlightDatabase {
         this.flights.add(new Flight("Paris", "Madrid", 50));
         this.flights.add(new Flight("Berlin", "Tokyo", 180));
         this.flights.add(new Flight("Paris", "Warsaw", 65));
+        this.flights.add(new Flight("Warsaw", "Budapest", 55));
+        this.flights.add(new Flight("Budapest", "Rome", 60));
+        this.flights.add(new Flight("Berlin", "Paris", 80));
+        this.flights.add(new Flight("Cracow", "Kiev", 45));
+        this.flights.add(new Flight("Amsterdam", "Oslo", 75));
     }
 
     public void checkIfFlightExists(String dep, String arr) {
@@ -104,5 +109,22 @@ public class FlightDatabase {
             }
         }
         return cheapestFlightToCity;
+    }
+
+    public ArrayList<Journey> getFlights(String dep, String arr) {
+        ArrayList<Flight> flightsFromStartingAirport = getFlightsFromCity(dep);
+
+        ArrayList<Flight> flightsToEndingAirport = getFlightsToCity(arr);
+
+        ArrayList<Journey> flightsWithChange = new ArrayList<Journey>();
+
+        for (Flight flightFromStartingAirport : flightsFromStartingAirport) {
+            for (Flight flightToEndingAirport : flightsToEndingAirport) {
+                if (flightFromStartingAirport.arrival.equals(flightToEndingAirport.departure)) {
+                    flightsWithChange.add(new Journey(flightFromStartingAirport, flightToEndingAirport));
+                }
+            }
+        }
+        return flightsWithChange;
     }
 }
